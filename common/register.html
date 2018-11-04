@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <style>
+        body {
+            font: 14px/1.5 "PingFang SC", "Lantinghei SC", "Microsoft YaHei", "HanHei SC", "Helvetica Neue", "Open Sans", Arial, "Hiragino Sans GB", "微软雅黑", STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+            background-color: #f8f8f8;
+            color: #282828;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/common.js"></script>
+</head>
+
+<body>
+
+    <div class="warp">
+        <div class="reg_hd">
+            <h3>欢迎注册</h3>
+        </div>
+        <div class="reg_fd">
+            <div class="reg_input">
+                <input type="text" id="stu_id" placeholder="学号" />
+                <input type="text" id="user" placeholder="姓名" />
+                <input type="password" id="pwd" placeholder="密码" />
+                <input type="password" id="pwd1" placeholder="确认密码" />
+            </div>
+            <div class="choose">
+                    <div class="reader">
+                        <input type="radio" id="man" value="0" name="sex" checked />
+                        <label for="man">男</label>
+                    </div>
+                    <div class="admin">
+                        <input type="radio" id="woman" value="1" name="sex" />
+                        <label for="woman">女</label>
+                    </div>
+                </div>
+            <div class="reg_btn">
+                <input type="submit" value="注册" id="register" />
+                <input type="reset" value="重置" />
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/index.js"></script>
+
+
+</html>

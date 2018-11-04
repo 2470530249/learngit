@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登陆</title>
+    <style>
+        body {
+            font: 14px/1.5 "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+            background-color: #f8f8f8;
+            color: #282828;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="layui/layui.js"></script>
+</head>
+
+<body>
+    <!-- 登录框 -->
+    <div class="login" id="login">
+        <div class="login_hd">
+            <span>登陆</span>
+        </div>
+        <div class="login_fd">
+            <div class="user">
+                <label>学号:</label>
+                <input type="text" placeholder="请输入用户名" id="user">
+            </div>
+            <div class="pwd">
+                <label>密码:</label>
+                <input type="password" placeholder="请输入密码" id="pwd">
+            </div>
+            <div class="choose">
+                <div class="reader">
+                    <input type="radio" id="reader" value="0" name="permissions" checked />
+                    <label for="reader">学生</label>
+                </div>
+                <div class="admin">
+                    <input type="radio" id="admin" value="1" name="permissions" />
+                    <label for="admin">管理员</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="login_btn">
+            <input type="button" value="登陆" id="login_btn" />
+            <input type="button" value="注册" id="register_btn" />
+        </div>
+    </div>
+    <p id="p"></p>
+</body>
+<script src="js/login.js"></script>
+<script>
+    $("#register_btn").on('click', function () {
+        window.open('register.html');
+    });
+</script>
+
+
+</html>

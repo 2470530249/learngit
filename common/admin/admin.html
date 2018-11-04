@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生宿舍管理系统</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .warp {
+            width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+    .title {
+        width: 300px;
+        height: 200px;
+        margin: 0 auto;
+        line-height: 200px;
+        font-size: 30px;
+    }
+    .login_out {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #adminlogin {
+        color: pink;
+    }
+    .titles {
+        width: 350px;
+        height: 200px;
+        margin: 0 auto;
+        line-height: 200px;
+        font-size: 30px;
+    }
+     body {
+            font: 14px/1.5 "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+            background-color: #f8f8f8;
+            color: #282828;
+        }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+
+
+</head>
+
+<body>
+    <div class="title">学生宿舍管理系统后台</div>
+    <div class="warp">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">欢迎登录</li>
+                <li>学生信息</li>
+                <li>住宿管理</li>
+                <li>请假审批</li>
+                <li>晚归管理</li>
+            </ul>
+            <div class="layui-tab-content" style="height: 500px;">
+                <div class="layui-tab-item layui-show">
+                    <div class="titles">
+                        欢迎 <span id="adminlogin">xxx</span>管理员登录
+                    </div>
+
+                </div>
+                <div class="layui-tab-item">
+                    <div class="item1">
+                        <table id="stu_info" lay-filter="stu_info"></table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="item2">
+                        <table id="zhusu" lay-filter="zhusu"></table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="item3">
+                        <table id="resign" lay-filter="resign"></table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="item4">
+                        <table id="school_back" lay-filter="school_back"></table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="login_out">
+            <button class="layui-btn" id="loginout">退出登录</button>
+        </div>
+    </div>
+
+</body>
+
+<script src="../layui/layui.js"></script>
+<script src="../js/common.js"></script>
+<script type="text/html" id="check">
+    <input type="checkbox" name="struts" value="{{d.resign_id}}" lay-skin="switch" lay-text="YES|NOT" lay-filter="reg" {{ d.code == 1 ? 'checked' : '' }}>
+  </script>
+<script src="../js/admin.js"></script>
+<script>
+    layui.use('layer', function () {
+        let layer = layui.layer;
+        layer.open({
+            type: 3,
+            content: '加载中',
+            time: 2000
+        });
+    });
+  if(cookie("admin")!="aa"){
+      console.log("aa");
+  }
+</script>
+
+</html>

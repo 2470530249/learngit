@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生宿舍信息</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <style>
+        body {
+            font: 14px/1.5 "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
+            background-color: #f8f8f8;
+            color: #282828;
+        }
+        .warp {
+            width: 1200px;
+            height: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .t1 {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .r1 {
+            width: 400px;
+
+        }
+
+        .info {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            width: 120px;
+
+            transform: translateY(-50%);
+        }
+
+        #rel {
+            position: relative;
+        }
+
+        #update_pwd {
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
+
+        .zs {
+            width: 500px;
+            margin: 0 auto;
+
+        }
+        .ss {
+            width: 800px;
+            margin: 0 auto;
+        }
+        #save {
+            position: absolute;
+            left: 50%;
+            bottom:0;
+            /* margin-left: 50px; */
+            transform: translateX(-50%);
+        }
+    .title {
+        width: 600px;
+        height: 200px;
+        margin: 0 auto;
+        font-size: 30px;
+    }
+    .titles {
+         width: 400px;
+        height: 100px;
+        margin: 0 auto;
+        line-height: 200px;
+        font-size: 30px;
+    }
+    </style>
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script src="../layui/layui.js"></script>
+
+
+</head>
+
+<body>
+    <div class="titles">
+        学生宿舍管理系统学生版
+    </div>
+    <div class="warp">
+        <div class="layui-tab layui-tab-card">
+            <ul class="layui-tab-title">
+                <li class="layui-this">欢迎登录</li>
+                <li>住宿信息</li>
+                <li>晚归记录</li>
+                <li>请假申请</li>
+                <li>我的信息</li>
+
+            </ul>
+            <div class="layui-tab-content" style="height: 800px;">
+                <div class="layui-tab-item layui-show">
+                    <div class="title">
+                        欢迎学号为:<span id="logininfo" style="color:pink">xxx</span>,姓名为: <span id="logininfo1" style="color:pink">xxx</span>同学登录本系统
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="zs">
+                        <table class="layui-table" lay-data="{height:200, url:'../code/data1.php', id:'test'}"
+                            lay-filter="test">
+                            <thead>
+                                <tr>
+                                    <th lay-data="{field:'id', width:80}">学号</th>
+                                    <th lay-data="{field:'username', width:80}">姓名</th>
+                                    <th lay-data="{field:'sex', width:80}">性别</th>
+                                    <th lay-data="{field:'address', width:100}">宿舍地址</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="layui-tab-item">
+                    <div class="zs">
+                        <table class="layui-table" lay-data="{height:200, url:'../code/data.php', id:'test'}"
+                            lay-filter="test">
+                            <thead>
+                                <tr>
+                                    <th lay-data="{field:'id', width:80}">学号</th>
+                                    <th lay-data="{field:'username', width:80}">姓名</th>
+                                    <th lay-data="{field:'sex', width:80}">性别</th>
+                                    <th lay-data="{field:'back', width:80}">晚归</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="ss">
+                        <form class="layui-form" method="POST">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学号</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="stu_id" lay-verify="required" autocomplete="off" class="layui-input"
+                                        readonly id="q_xuehao">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">姓名</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="stu_name" lay-verify="required" autocomplete="off" class="layui-input"
+                                        readonly id="q_xm">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">单选框</label>
+                                <div class="layui-input-block">
+                                    <input type="radio" name="sex" value="男" title="男">
+                                    <input type="radio" name="sex" value="女" title="女" checked>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">请假目的</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" required lay-verify="required" placeholder="请输入原因"
+                                        autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">请假时间</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" required lay-verify="required" placeholder="半天"
+                                        autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item layui-form-text">
+                                <label class="layui-form-label">请假原因</label>
+                                <div class="layui-input-block">
+                                    <textarea name="desc" placeholder="请输入原因" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+
+                                </div>
+                            </div>
+                        </form>
+                        <table class="layui-table" lay-data="{height:300, url:'../code/select_resign.php',page:true, id:'resignTest'}"
+                            lay-filter="test">
+                            <thead>
+                                <tr>
+                                    <th lay-data="{field:'piz',type:'numbers',width:80}">序号</th>
+                                    <th lay-data="{field:'stu_id', width:80}">学号</th>
+                                    <th lay-data="{field:'stu_name', width:80}">姓名</th>
+                                    <th lay-data="{field:'stu_sex', width:80}">性别</th>
+                                    <th lay-data="{field:'times', width:80}">请假时间</th>
+                                    <th lay-data="{field:'text', width:80}">请假原因</th>
+                                    <th lay-data="{field:'code', width:80}">状态</th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="zs">
+                        <form class="layui-form" method="POST" lay-filter="test1">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">学号</label>
+                                <div class="layui-input-block ">
+                                    <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input save"
+                                        readonly id="x_xuehao" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">姓名</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input save"
+                                        readonly id="x_xm" />
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">性别</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="title" lay-verify="required" autocomplete="off" class="layui-input save"
+                                        readonly id="x_xb">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">年龄</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f-age" id="age" lay-verify="required" autocomplete="off"
+                                        class="layui-input save">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">爱好</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f-hobby" id="hobby" lay-verify="required" autocomplete="off"
+                                        class="layui-input save">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">政治面貌</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f-face" id="face" lay-verify="required" autocomplete="off"
+                                        class="layui-input save">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">籍贯</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f-place" id="place" lay-verify="required" autocomplete="off"
+                                        class="layui-input save">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">专业</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="f-pres" id="pres" lay-verify="required" autocomplete="off"
+                                        class="layui-input save">
+                                </div>
+                            </div>
+                            <button class="layui-btn" lay-submit="save" lay-filter="save" id="save">保存</button>
+                            <div class="layui-btn layui-btn-normal" id="update_pwd">修改密码</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="layui-collapse" lay-accordion>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">学号</h2>
+                    <div class="layui-colla-content layui-show" id="stu_id">
+                        xxx
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">姓名</h2>
+                    <div class="layui-colla-content layui-show" id="stu_name">xxx</div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">性别</h2>
+                    <div class="layui-colla-content layui-show" id="stu_sex">xxx</div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title" id="loginout">退出登录</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="../js/index.js"></script>
+<script src="../js/common.js"></script>
+
+<script>
+
+</script>
+
+</html>
