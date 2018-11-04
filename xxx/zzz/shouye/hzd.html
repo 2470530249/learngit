@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script type="text/javascript"> 
+	function myCheck()     
+	{       
+		for(var i=0;i<document.form1.elements.length-1;i++) 
+		{      
+			if(document.form1.elements[i].value=="")  
+			{        
+				alert("当前表单不能有空项");           document.form1.elements[i].focus();  
+				return false;    
+				}      
+				}       
+				return true;    
+				}   
+				</script>
+
+	
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../assets/css/shouye.css" />
+		<style>
+			
+				#btn{
+	margin: 30px;
+	width: 80px;
+	height: 35px;
+}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page-container">
+			<div class="head">
+				<span>物流管理系统</span>
+				<a href="logout.php" style="color:#F09;" id="zx">注销</a>
+
+			</div>
+			<div class="left">
+				<ul class="nav">
+					<li><a href="khgl.html">客户管理</a></li>
+					<li><a href="clgl.html">车辆管理</a></li>
+					<li><a href="cpgl.html">产品管理</a></li>
+					<li><a href="ddgl.html">订单管理</a></li>
+					<li><a href="fhd.html">发货单管理</a></li>
+					<li><a href="hzd.html">回执单管理</a></li>
+				</ul>
+			
+			</div>
+			<div class="container_top">
+				<div class="top_top">
+					<span><a href="index.html">首页</a></span>
+				</div>
+				<div class="top_bottom">
+		<form name="form1" method="post" action="tianjia.php" onSubmit="return myCheck()"> 
+					<ul class="nav1">
+					<li>
+						<label>运&#12288;单&#12288;号:</label>
+					<input type="text" name="yd_id" id="yd_id"/><br />
+					</li>
+					<li>
+					<label>客户&#12288;名称:</label>
+					<input type="text" name="client_name" id="client_name"/><br />
+					</li>
+					<li>
+					<label>收货人名称:</label>
+					<input type="text" name="shr_name" id="shr_name"/>
+					</li>
+					<li>
+					<label>收货人电话:</label>
+					<input type="text" name="shr_tel" id="shr_tel"/>
+					</li>
+	<input type="submit" value="提交" id="btn" onclick="return checkStr()" />
+	<input type="reset" value="重置" id="btn" />
+					</ul>
+					</form>
+				</div>
+			</div>
+			<div class="footer">
+				湖南广播电视大学&湖南网络工程职业学院<br />
+					PHP物流管理系统
+			</div>
+		</div>
+	</body>
+</html>
