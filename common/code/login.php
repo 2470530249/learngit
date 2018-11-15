@@ -22,6 +22,7 @@ header("content-type:text/html;charset=utf-8");
         }else{
         $code = 0;//登陆成功
         }
+       
         $rows["code"]=$code;
         unset($rows['password']);//返回的json数据中删除password这一项
         $json = json_encode($rows);

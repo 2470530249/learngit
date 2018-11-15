@@ -116,6 +116,7 @@
                             openView.tips2();
                             break;
                         case 0:
+                        sessionStorage.setItem('login_success_in','successLoginInUser');
                             cookie('admin', ""+data.user+"");
                             location.href = "admin/admin.html";
                             break;

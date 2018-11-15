@@ -1,7 +1,6 @@
 <?php
 header("content-type:text/html;charset=utf-8");
  function admin_login(){
-        session_start();
         $user = htmlspecialchars($_POST['username']);  //用户名
         $pwd = $_POST['password']; //密码
         $code = "";//状态码
@@ -21,8 +20,10 @@ header("content-type:text/html;charset=utf-8");
         }else if($rows['password']!=$pwd){
           $code = 2;//密码不正确
         }else {
+         
           $code = 0;//登陆成功
         }
+
         $rows["code"]=$code;
         unset($rows['password']);
         $json = json_encode($rows);

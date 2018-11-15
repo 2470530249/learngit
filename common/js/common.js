@@ -219,7 +219,7 @@ var views = {
             content: "添加成功",
             title: "提示",
             yes: function (index) {
-                layer.close(index);
+                layer.closeAll();
             }
         });
     },
@@ -242,7 +242,7 @@ var openView1 = {
             layer.open({
                 type: 0,
                 title: '提示',
-                icon:5,
+                icon: 5,
                 content: '两次输入的密码不一致,请重试'
             });
         });
@@ -253,10 +253,10 @@ var openView1 = {
             layer.open({
                 type: 0,
                 title: '提示',
-                icon:1,
+                icon: 1,
                 content: '注册成功,去登陆',
-                yes:function(){
-                    location.href="index.html";
+                yes: function () {
+                    location.href = "index.html";
                 }
             });
         });
@@ -266,7 +266,7 @@ var openView1 = {
             layer.open({
                 type: 0,
                 title: '提示',
-                icon:5,
+                icon: 5,
                 content: '注册失败,请重试'
             });
         });
@@ -276,7 +276,7 @@ var openView1 = {
             layer.open({
                 type: 0,
                 title: '提示',
-                icon:5,
+                icon: 5,
                 content: '每一项都是必填项哦'
             });
         });
@@ -287,7 +287,7 @@ var openView1 = {
             layer.open({
                 type: 0,
                 title: '提示',
-                icon:5,
+                icon: 5,
                 content: '用户名已存在,换一个试试吧'
             });
         });
@@ -345,3 +345,4 @@ $("#loginout").click(function () {
         });
     });
 });
+
